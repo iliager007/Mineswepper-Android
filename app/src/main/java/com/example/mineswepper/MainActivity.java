@@ -56,8 +56,10 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         if(started){
                             if(btn.isMine()){
-                                Toast toast = Toast.makeText(getApplicationContext(), "Не делай этого!", Toast.LENGTH_SHORT);
-                                toast.show();
+                                if(!btn.isFlagged()) {
+                                    Toast toast = Toast.makeText(getApplicationContext(), "Не делай этого!", Toast.LENGTH_SHORT);
+                                    toast.show();
+                                }
                             }
                             else{
                                 btn.open();

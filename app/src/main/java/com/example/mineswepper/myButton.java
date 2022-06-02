@@ -70,15 +70,9 @@ class myButton extends androidx.appcompat.widget.AppCompatImageButton{
         this.flagged = flagged;
         if(flagged){
             this.setImageDrawable(AppCompatResources.getDrawable(this.getContext(), R.drawable.flag));
-            this.setActivated(false);
-            this.setClickable(false);
-            this.setEnabled(false);
         }
         else {
             this.setImageDrawable(null);
-            this.setActivated(true);
-            this.setClickable(true);
-            this.setEnabled(true);
         }
     }
 }
