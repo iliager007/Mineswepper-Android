@@ -9,6 +9,8 @@ import android.widget.Button;
 import androidx.appcompat.content.res.AppCompatResources;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.TreeSet;
 
 class myButton extends androidx.appcompat.widget.AppCompatImageButton{
     int height = 11;
@@ -20,6 +22,7 @@ class myButton extends androidx.appcompat.widget.AppCompatImageButton{
     boolean flagged = false;
     int countMines = 0;
     ArrayList<ArrayList<myButton>> btns;
+    static HashSet<Integer> openedBtns = new HashSet<>();
     public myButton(Context context, int i, int j, ArrayList<ArrayList<myButton>> btns) {
         super(context);
         this.i = i;
@@ -47,6 +50,7 @@ class myButton extends androidx.appcompat.widget.AppCompatImageButton{
         this.setOpened(true);
         this.setClickable(false);
         this.setEnabled(false);
+        openedBtns.add(i * width + j);
         if(this.countMines == 1) this.setImageDrawable(AppCompatResources.getDrawable(this.getContext(), R.drawable.one));
         else if(this.countMines == 2) this.setImageDrawable(AppCompatResources.getDrawable(this.getContext(), R.drawable.two));
         else if(this.countMines == 3) this.setImageDrawable(AppCompatResources.getDrawable(this.getContext(), R.drawable.three));
